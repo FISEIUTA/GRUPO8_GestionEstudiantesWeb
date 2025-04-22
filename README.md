@@ -111,6 +111,7 @@ Ventajas:
 4. Desarrollo
    
 4.1.Modelado
+
 Para realizar el proceso de modelado lo primero que se hizo fue detallar las clases que se
 usarían, para lo cual se definieron las siguientes:
 • Carrera
