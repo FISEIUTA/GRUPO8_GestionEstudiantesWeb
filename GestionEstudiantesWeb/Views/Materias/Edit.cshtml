@@ -1,0 +1,39 @@
+﻿@model GestionEstudiantesWeb.Models.Materia
+
+
+<h4>Editar materia</h4>
+<p></p>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdMateria" />
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nivel</label>
+                <select asp-for="IdNivel" class="form-control" asp-items="ViewBag.IdNivel"></select>
+                <span asp-validation-for="IdNivel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Docente</label>
+                <select asp-for="IdDocente" class="form-control" asp-items="ViewBag.IdDocente"></select>
+                <span asp-validation-for="IdDocente" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-danger">Cancelar</a>
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

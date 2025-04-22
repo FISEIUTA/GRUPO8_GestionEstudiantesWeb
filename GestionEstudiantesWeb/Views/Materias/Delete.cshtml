@@ -1,0 +1,26 @@
+﻿@model GestionEstudiantesWeb.Models.Materia
+
+<h4>¿Estas seguro de eliminar esta materia?</h4>
+<p></p>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">Nombre</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">Docente </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.oDocente.NombreCompleto)
+        </dd>
+        <dt class = "col-sm-2">Nivel</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.oNivel.Nombre)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdMateria" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-primary">Cancelar</a>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+﻿@model GestionEstudiantesWeb.Models.Estudiante
+
+<h4>¿Estas seguro de eliminar este estudiante?</h4>
+<p></p>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">Cedula</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cedula)
+        </dd>
+        <dt class = "col-sm-2">Nombre</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">Apellido</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <dt class = "col-sm-2">Correo</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Correo)
+        </dd>
+        <dt class = "col-sm-2">Carrera </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.oCarrera.Nombre)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdEstudiante" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-primary">Cancelar</a>
+    </form>
+</div>

@@ -1,0 +1,42 @@
+﻿@model GestionEstudiantesWeb.Models.Docente
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Registrar docente</h4>
+<p></p>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cedula" class="control-label"></label>
+                <input asp-for="Cedula" class="form-control" />
+                <span asp-validation-for="Cedula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-danger">Cancelar</a>
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+            </div>
+        </form>
+        <p></p>
+        <p><b>Nota:</b> El correo se genera automáticamente.</p>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

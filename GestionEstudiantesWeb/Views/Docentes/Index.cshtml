@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GestionEstudiantesWeb.Models.Docente>
+
+<h4 class=" text-center">DOCENTES REGISTRADOS</h4>
+<p></p>
+<p>
+    <a asp-action="Create" class="btn btn-info">Nuevo Docente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td class="text-center">
+                <a asp-action="Edit" asp-route-id="@item.IdDocente" class="btn btn-warning">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.IdDocente" class="btn btn-info">Detalles</a>
+                <a asp-action="Delete" asp-route-id="@item.IdDocente" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

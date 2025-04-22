@@ -1,0 +1,34 @@
+﻿@model IEnumerable<GestionEstudiantesWeb.Models.Materia>
+
+<h4 class="text-center" mb-4>MATERIAS REGISTRADAS</h4>
+<p></p>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nueva Materia</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Docente</th>
+            <th>Carrera</th>
+            <th>Nivel</th>
+			<th class="text-center">Acciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+			<td>@item.oDocente.Nombre @item.oDocente.Apellido</td>
+            <td>@Html.DisplayFor(modelItem => item.oNivel.oCarrera.Nombre)</td>
+            <td>@Html.DisplayFor(modelItem => item.oNivel.Nombre)</td>
+            <td class="text-center">
+                <a asp-action="Edit" asp-route-id="@item.IdMateria" class="btn btn-warning">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.IdMateria" class="btn btn-info">Detalles</a>
+                <a asp-action="Delete" asp-route-id="@item.IdMateria" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

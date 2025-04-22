@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GestionEstudiantesWeb.Models.Matricula>
+
+<h4 class="text-center" mb-4>MATRICULAS REGISTRADAS</h4>
+<p></p>
+<p>
+    <a asp-action="Create" class="btn btn-primary"> Nueva Matricula</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Estudiante</th>
+            <th>Materia</th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+            <td>@item.oEstudiante.Nombre @item.oEstudiante.Apellido</td>
+            <td>@Html.DisplayFor(modelItem => item.oMateria.Nombre)</td>
+            <td class="text-center">
+                <a asp-action="Edit" asp-route-id="@item.IdMatricula" class="btn btn-warning">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.IdMatricula" class="btn btn-info">Detalles</a>
+                <a asp-action="Delete" asp-route-id="@item.IdMatricula" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
